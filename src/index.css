@@ -100,3 +100,91 @@ html {
 .backdrop-blur-md {
   backdrop-filter: blur(12px);
 }
+
+/* Efectos 3D para las cards */
+.group\/card:hover {
+  transform: perspective(1000px) rotateX(5deg) rotateY(5deg);
+  transition: transform 0.3s ease;
+}
+
+.group\/card:hover .group-hover\/card\:shadow-xl {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+/* Mejorar el efecto de profundidad */
+.group\/card {
+  transition: all 0.3s ease;
+}
+
+/* Asegurar que las cards mantengan su estilo */
+.bg-white\/10 {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.backdrop-blur-md {
+  backdrop-filter: blur(12px);
+}
+
+/* Asegurar altura consistente para todas las cards */
+.h-\[520px\] {
+  height: 520px;
+}
+
+.h-16 {
+  height: 4rem;
+}
+
+.h-20 {
+  height: 5rem;
+}
+
+/* Limitar líneas de texto */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Scroll personalizado para tecnologías */
+.max-h-20 {
+  max-height: 5rem;
+}
+
+.overflow-y-auto::-webkit-scrollbar {
+  width: 4px;
+}
+
+.overflow-y-auto::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+}
+
+.overflow-y-auto::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 2px;
+}
+
+.overflow-y-auto::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+/* Flex para distribución consistente */
+.flex-1 {
+  flex: 1 1 0%;
+}
+
+.min-h-0 {
+  min-height: 0;
+}
+
+.flex-shrink-0 {
+  flex-shrink: 0;
+}

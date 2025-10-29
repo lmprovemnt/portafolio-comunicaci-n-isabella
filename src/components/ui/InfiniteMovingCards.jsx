@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import { cn } from "../../utils";
+import { CardBody, CardContainer, CardItem } from "./3d-card";
 
 export const InfiniteMovingCards = ({
   items,
@@ -11,6 +12,7 @@ export const InfiniteMovingCards = ({
   const containerRef = useRef(null);
   const scrollerRef = useRef(null);
 
+  // Animación del carrusel
   useEffect(() => {
     addAnimation();
   }, []);
@@ -37,15 +39,9 @@ export const InfiniteMovingCards = ({
   const getDirection = () => {
     if (containerRef.current) {
       if (direction === "left") {
-        containerRef.current.style.setProperty(
-          "--animation-direction",
-          "forwards"
-        );
+        containerRef.current.style.setProperty("--animation-direction", "forwards");
       } else {
-        containerRef.current.style.setProperty(
-          "--animation-direction",
-          "reverse"
-        );
+        containerRef.current.style.setProperty("--animation-direction", "reverse");
       }
     }
   };
@@ -80,29 +76,59 @@ export const InfiniteMovingCards = ({
       >
         {items.map((proyecto, idx) => (
           <li
-            className="w-[400px] max-w-full relative rounded-2xl border flex-shrink-0 border-white/20 px-8 py-8 bg-white/10 backdrop-blur-md"
             key={proyecto.titulo + idx}
+            className="w-[400px] h-[520px] max-w-full flex-shrink-0" // Altura fija añadida
           >
-            <div className="relative z-20">
-              <h3 className="text-2xl font-bold text-white mb-4">
-                <strong>{proyecto.titulo}</strong>
-              </h3>
-              
-              <p className="text-white/90 mb-6 leading-relaxed font-semibold text-base">
-                <strong>{proyecto.descripcion}</strong>
-              </p>
-              
-              <div className="flex flex-wrap gap-2">
-                {proyecto.tecnologias.map((tech, techIndex) => (
-                  <span 
-                    key={techIndex} 
-                    className="bg-purple-600 text-white px-3 py-1 rounded-full text-sm font-bold"
-                  >
-                    <strong>{tech}</strong>
-                  </span>
-                ))}
-              </div>
-            </div>
+            <CardContainer className="inter-var h-full">
+              <CardBody className="bg-white/10 backdrop-blur-md relative group/card hover:shadow-2xl hover:shadow-purple-500/[0.1] border-white/[0.2] w-full h-full rounded-2xl p-6 border flex flex-col">
+                
+                {/* Título con efecto 3D - altura fija */}
+                <CardItem
+                  translateZ="50"
+                  className="text-2xl font-bold text-white mb-3 h-16 flex items-start" // Altura fija para título
+                >
+                  <strong className="line-clamp-2">{proyecto.titulo}</strong>
+                </CardItem>
+                
+                {/* Descripción con efecto 3D - altura fija */}
+                <CardItem
+                  as="p"
+                  translateZ="60"
+                  className="text-white/90 leading-relaxed font-semibold text-base mb-4 h-20 flex items-start" // Altura fija para descripción
+                >
+                  <strong className="line-clamp-3">{proyecto.descripcion}</strong>
+                </CardItem>
+                
+                {/* Imagen con efecto 3D - altura fija */}
+                <CardItem 
+                  translateZ="100" 
+                  className="w-full mb-4 flex-shrink-0"
+                >
+                  <img
+                    src={proyecto.imagen}
+                    className="h-48 w-full object-cover rounded-xl group-hover/card:shadow-xl"
+                    alt={proyecto.titulo}
+                  />
+                </CardItem>
+                
+                {/* Tecnologías con efecto 3D - altura fija y scroll si es necesario */}
+                <CardItem
+                  translateZ="30"
+                  className="w-full flex-1 min-h-0"
+                >
+                  <div className="flex flex-wrap gap-2 max-h-20 overflow-y-auto">
+                    {proyecto.tecnologias.map((tech, techIndex) => (
+                      <span 
+                        key={techIndex} 
+                        className="bg-purple-600 text-white px-3 py-1 rounded-full text-sm font-bold flex-shrink-0"
+                      >
+                        <strong>{tech}</strong>
+                      </span>
+                    ))}
+                  </div>
+                </CardItem>
+              </CardBody>
+            </CardContainer>
           </li>
         ))}
       </ul>

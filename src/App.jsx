@@ -9,8 +9,8 @@ import Footer from "./components/Footer";
 
 function App() {
   return (
-    <div className="relative">
-      {/* Background fijo que queda detrás de todo */}
+    <div className="relative min-h-screen">
+      {/* Background fijo */}
       <div className="fixed inset-0 -z-50">
         <BackgroundGradientAnimation 
           gradientBackgroundStart="rgb(108, 0, 162)"
@@ -19,7 +19,7 @@ function App() {
         />
       </div>
       
-      {/* Contenido principal con scroll */}
+      {/* Contenido principal */}
       <div className="relative z-10">
         <Navbar />
         <Inicio />
