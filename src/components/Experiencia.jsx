@@ -1,29 +1,49 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React from "react";
 
-export default function Experiencia(){
-  const items = [
-    {role:'Practicante de Comunicación Interna', org:'Universidad del Valle', year:'2024', desc:'Campañas institucionales, redacción y gestión de redes.'},
-    {role:'Voluntariado Audiovisual', org:'Fundación Comunicación Viva', year:'2023', desc:'Producción de piezas para proyectos sociales.'},
+const Experiencia = () => {
+  const experiencias = [
+    {
+      titulo: "Desarrollador Full Stack",
+      empresa: "Tech Solutions Inc.",
+      periodo: "2022 - Presente",
+      descripcion: "Desarrollo de aplicaciones web con React, Node.js y MongoDB."
+    },
+    {
+      titulo: "Frontend Developer",
+      empresa: "Digital Agency",
+      periodo: "2020 - 2022",
+      descripcion: "Creación de interfaces de usuario responsive y modernas."
+    }
   ];
+
   return (
-    <section id="experiencia" className="py-20 bg-slate-50">
-      <div className="container-center">
-        <h2 className="text-3xl font-bold text-slate-900 mb-8">Experiencia</h2>
-        <div className="space-y-4">
-          {items.map((it,i)=>(
-            <motion.div key={i} initial={{opacity:0, x:-20}} whileInView={{opacity:1, x:0}} className="bg-white p-6 rounded-lg border border-slate-100 shadow-sm">
-              <div className="flex justify-between">
-                <div>
-                  <h3 className="font-semibold text-slate-900">{it.role}</h3>
-                  <p className="text-sm text-slate-600">{it.org} • {it.year}</p>
-                </div>
-              </div>
-              <p className="text-slate-700 mt-3">{it.desc}</p>
-            </motion.div>
+    <section id="experiencia" className="py-20">
+      <div className="container mx-auto px-6">
+        <h2 className="text-4xl font-bold text-white text-center mb-16">
+          <strong>EXPERIENCIA PROFESIONAL</strong>
+        </h2>
+        
+        <div className="grid md:grid-cols-2 gap-8 justify-items-center">
+          {experiencias.map((exp, index) => (
+            <div key={index} className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 w-full max-w-md">
+              <h3 className="text-2xl font-bold text-white mb-2">
+                <strong>{exp.titulo}</strong>
+              </h3>
+              <p className="text-purple-300 font-bold mb-2">
+                <strong>{exp.empresa}</strong>
+              </p>
+              <p className="text-white/80 font-bold mb-4">
+                <strong>{exp.periodo}</strong>
+              </p>
+              <p className="text-white/90 leading-relaxed font-semibold">
+                <strong>{exp.descripcion}</strong>
+              </p>
+            </div>
           ))}
         </div>
       </div>
     </section>
   );
-}
+};
+
+export default Experiencia;

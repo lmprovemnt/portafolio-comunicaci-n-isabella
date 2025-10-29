@@ -1,27 +1,53 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React from "react";
+import { InfiniteMovingCards } from "./ui/InfiniteMovingCards";
 
-export default function Proyectos(){
-  const projects = [
-    {title: 'Proyecto audiovisual', desc: 'Cortometraje sobre memoria colectiva', img: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=1200'},
-    {title: 'Campaña digital', desc: 'Estrategia para ONG ambiental', img: 'https://images.unsplash.com/photo-1520975913760-9b4c7b0d2d5a?w=1200'},
+const Proyectos = () => {
+  const proyectos = [
+    {
+      titulo: "E-commerce Platform",
+      descripcion: "Plataforma de comercio electrónico con carrito de compras y pasarela de pago.",
+      tecnologias: ["React", "Node.js", "MongoDB"]
+    },
+    {
+      titulo: "Task Management App",
+      descripcion: "Aplicación para gestión de tareas con drag & drop y notificaciones.",
+      tecnologias: ["Vue.js", "Express", "PostgreSQL"]
+    },
+    {
+      titulo: "Social Media Dashboard",
+      descripcion: "Dashboard para análisis de redes sociales con gráficos interactivos.",
+      tecnologias: ["React", "TypeScript", "Chart.js"]
+    },
+    {
+      titulo: "Mobile Fitness App",
+      descripcion: "Aplicación móvil para seguimiento de ejercicios y rutinas de fitness.",
+      tecnologias: ["React Native", "Firebase", "Redux"]
+    },
+    {
+      titulo: "Real Estate Platform",
+      descripcion: "Plataforma inmobiliaria con búsqueda avanzada y sistema de citas.",
+      tecnologias: ["Next.js", "PostgreSQL", "Tailwind"]
+    }
   ];
+
   return (
     <section id="proyectos" className="py-20">
-      <div className="container-center">
-        <h2 className="text-3xl font-bold text-slate-900 mb-8">Proyectos</h2>
-        <div className="grid md:grid-cols-2 gap-6">
-          {projects.map((p,i)=>(
-            <motion.article key={i} whileHover={{scale:1.02}} className="bg-white rounded-lg border border-slate-100 shadow-sm overflow-hidden">
-              <img src={p.img} alt={p.title} className="w-full h-48 object-cover"/>
-              <div className="p-4">
-                <h3 className="font-semibold text-slate-900">{p.title}</h3>
-                <p className="text-slate-600 mt-2">{p.desc}</p>
-              </div>
-            </motion.article>
-          ))}
+      <div className="container mx-auto px-6">
+        <h2 className="text-4xl font-bold text-white text-center mb-16">
+          <strong>PROYECTOS DESTACADOS</strong>
+        </h2>
+        
+        {/* Sección de proyectos con Infinite Moving Cards */}
+        <div className="mb-20">
+          <InfiniteMovingCards 
+            items={proyectos} 
+            direction="right" 
+            speed="slow" 
+          />
         </div>
       </div>
     </section>
   );
-}
+};
+
+export default Proyectos;

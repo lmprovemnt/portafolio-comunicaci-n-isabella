@@ -1,19 +1,32 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React from "react";
 
-export default function Inicio(){
+const Inicio = () => {
   return (
-    <section id="inicio" className="min-h-screen flex items-center">
-      <div className="container-center text-center">
-        <motion.h1 initial={{opacity:0, y:20}} animate={{opacity:1, y:0}} transition={{duration:0.8}} className="text-4xl md:text-6xl font-extrabold text-slate-900 mb-4">Hola, soy Santiago Valencia</motion.h1>
-        <motion.p initial={{opacity:0}} animate={{opacity:1}} transition={{delay:0.3}} className="text-lg text-slate-600 max-w-2xl mx-auto">
-          Estudiante de Comunicación Social — creo contenidos, estrategias y piezas audiovisuales que conectan con las audiencias.
-        </motion.p>
-        <div className="mt-8 flex justify-center gap-4">
-          <a href="#proyectos" className="px-6 py-3 bg-sky-600 text-white rounded-md shadow">Ver proyectos</a>
-          <a href="#contacto" className="px-6 py-3 border border-slate-200 rounded-md text-slate-700">Contacto</a>
+    <section id="inicio" className="min-h-screen flex items-center justify-center py-20">
+      <div className="container mx-auto px-6 text-center">
+        <div className="bg-white/10 backdrop-blur-md rounded-3xl p-12 border border-white/20 shadow-2xl">
+          <h1 className="text-6xl font-bold text-white mb-6">
+            <strong>HOLA, SOY ISABELIA</strong>
+          </h1>
+          <p className="text-xl text-white/90 mb-8 leading-relaxed font-semibold">
+            <strong>
+              Desarrolladora Full Stack apasionada por crear soluciones innovadoras 
+              y experiencias digitales excepcionales. Especializada en React, Node.js 
+              y tecnologías modernas.
+            </strong>
+          </p>
+          <div className="flex justify-center space-x-6">
+            <button className="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-8 rounded-full transition transform hover:scale-105">
+              <strong>Ver Proyectos</strong>
+            </button>
+            <button className="border-2 border-white text-white hover:bg-white/10 font-bold py-3 px-8 rounded-full transition">
+              <strong>Contactar</strong>
+            </button>
+          </div>
         </div>
       </div>
     </section>
   );
-}
+};
+
+export default Inicio;

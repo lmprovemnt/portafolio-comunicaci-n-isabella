@@ -21,3 +21,82 @@ body {
 .container-center {
   @apply max-w-6xl mx-auto px-6;
 }
+/* Agrega esto a tu index.css */
+.relative.z-10 {
+  position: relative;
+  z-index: 10;
+}
+
+/* Opcional: Si quieres que las secciones tengan fondo ligeramente transparente */
+section {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+/* Asegurar que el body y html ocupen toda la altura */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+/* Fondo fijo que no se mueve con el scroll */
+.fixed {
+  position: fixed;
+}
+
+/* Contenido con posición relativa para estar encima */
+.relative.z-10 {
+  position: relative;
+  z-index: 10;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Mejorar legibilidad del texto sobre el fondo */
+.text-white {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Infinite Moving Cards Styles */
+@keyframes scroll {
+  to {
+    transform: translate(calc(-50% - 0.5rem));
+  }
+}
+
+.animate-scroll {
+  animation: scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite;
+}
+
+.scroller {
+  mask-image: linear-gradient(to right, transparent, white 20%, white 80%, transparent);
+}
+
+/* Dark mode support */
+.dark .dark\:bg-grid-white\/\[0\.05\] {
+  background-image: linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size: 4rem 4rem;
+}
+
+/* Infinite Moving Cards Styles para proyectos */
+.scroller {
+  mask-image: linear-gradient(to right, transparent, white 10%, white 90%, transparent);
+}
+
+.hover\:\[animation-play-state\:paused\]:hover {
+  animation-play-state: paused;
+}
+
+/* Mejorar la apariencia de las cards de proyectos */
+.bg-white\/10 {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.backdrop-blur-md {
+  backdrop-filter: blur(12px);
+}
